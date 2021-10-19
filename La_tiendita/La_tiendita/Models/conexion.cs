@@ -294,12 +294,124 @@ namespace La_tiendita.Models
                 }
 
             }
+        //---------------------------------------------------------------------------------------------
 
+        public Categoria cargarCategoria(int id)
+        {
+            conectar();
+            //objetos comando
+            SqlCommand comando = new SqlCommand();//tabla 
+            SqlDataReader lector;
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = "SELECT * FROM Categoria WHERE Id_categoria =" + id;
+            comando.Connection = this.conexionSQL;
 
+            try
+            {
+                //extra datos de la tabla Ofertas a controles asp y variables string.
+                lector = comando.ExecuteReader();
+                Categoria items = new Categoria();
+                if (lector.HasRows)
+                {
+                    while (lector.Read())
+                    {
 
+                        items.idCategoria = Convert.ToInt32(lector["Id_categoria"]);
+                        items.categoria = lector["categoria"].ToString();
 
+                    }
 
-
+                }
+                lector.Close();
+                desconectar();
+                return items;
+            }
+            catch (SqlException error)
+            {
+                return null;
+            }
 
         }
+
+        public int actualizarCategoria(Categoria categoria)
+        {
+            conectar();
+            String query = "update Categoria set categoria = @p1 where Id_categoria =" + categoria.idCategoria;
+            SqlCommand comando = new SqlCommand();
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = query;
+            comando.Connection = this.conexionSQL;
+            try
+            {
+                //asigna los valores a los parametros utilizados en la consulta.
+                comando.Parameters.AddWithValue("@p1", categoria.categoria);
+
+                //Realizar el actualización a la tabal oferta desde la aplicación.
+                return comando.ExecuteNonQuery();
+                desconectar();
+
+            }
+            catch (SqlException error)
+            {
+                return 0;
+                desconectar();
+            }
+
+        }
+
+
+        public int eliminarCategoria(int idcategoria)
+        {
+            conectar();
+            String query = "Delete from Categoria where Id_categoria = @p1";
+            SqlCommand comando = new SqlCommand();
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = query;
+            comando.Connection = this.conexionSQL;
+            try
+            {
+                //asigna los valores a los parametros utilizados en la consulta.
+                comando.Parameters.AddWithValue("@p1", idcategoria);
+
+                //Realizar el actualización a la tabal oferta desde la aplicación.
+                return comando.ExecuteNonQuery();
+                desconectar();
+            }
+            catch (SqlException error)
+            {
+                return 0;
+                desconectar();
+            }
+        }
+
+        public int insertarCategoria(Categoria categoria)
+        {
+            conectar();
+            String query = "Insert into Categoria values(@p1)";
+            SqlCommand comando = new SqlCommand();
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = query;
+            comando.Connection = this.conexionSQL;
+            try
+            {
+                //asigna los valores a los parametros utilizados en la consulta.
+                comando.Parameters.AddWithValue("@p1", categoria.categoria);
+
+                //Realizar el actualización a la tabal oferta desde la aplicación.
+                return comando.ExecuteNonQuery();
+                desconectar();
+
+            }
+            catch (SqlException error)
+            {
+                return 0;
+                desconectar();
+            }
+
+        }
+
+
+
+
+    }
 }

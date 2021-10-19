@@ -166,6 +166,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Modificar.cshtml" />
     <Content Include="Views\Home\Insertar.cshtml" />
+    <Content Include="Views\Home\Categoria.cshtml" />
+    <Content Include="Views\Home\ModificarCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
