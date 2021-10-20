@@ -4,43 +4,59 @@
 }
 
 
+
+
+
+
+@*<h2>
+        Lista de Categoria
+    </h2>
+    <hr />*@
+
+<header class="bg-dark py-5" style="position: relative; top:-30px; left:-130px; width: 1367px;">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder"> Lista de Categoria</h1>
+            <p class="lead fw-normal text-white-50 mb-0"></p>
+        </div>
+    </div>
+</header>
+
 @Html.ActionLink("Agregar Categoria", "InsertarCategoria", null, new { miatributo = "valor1", @class = "btn btn-info" })
 
-<h2>
-    Lista de Categoria
-</h2>
-<hr />
+<section class="ftco-section">
+    
+                    <table class="table table-responsive-xl">
+                        <thead>
+                            <tr>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th></th>
-            <th>Categoria</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.categoria)
-        {
-            <tr>
-                <td>@item.idCategoria
-                <td>
-                <td>@item.categoria</td>
-                <td>
-                    
-                    @Html.ActionLink("Modificar", "ModificarCategoria", new { id = item.idCategoria }, new { miatributo = "valor1", @class = "btn btn-success" })
-                    @Html.ActionLink("Eliminar", "EliminarCategoria", new { id = item.idCategoria }, new { miatributo = "valor1", @class = "btn btn-danger", onclick = "return confirm('¿Estas seguro de eliminar este registro?');" })
-                </td>
+                                <th scope="col">ID</th>
+                                <th scope="col"></th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-            </tr>
+                            @foreach (var item in ViewBag.categoria)
+                            {
+                                <tr >
+                                    <td>@item.idCategoria
+                                    <td>
+                                    <td>@item.categoria</td>
+                                    <td>
+                                        @Html.ActionLink("Modificar", "ModificarCategoria", new { id = item.idCategoria }, new { miatributo = "valor1", @class = "btn btn-success" })
+                                    @Html.ActionLink(" Eliminar", "EliminarCategoria", new { id = item.idCategoria }, new { miatributo = "valor1", @class = "btn btn-danger fa fa-close", onclick = "return confirm('¿Estas seguro de eliminar este registro?');" })
 
-
-        }
+                                </td>
+                            </tr>
 
 
-
-    </tbody>
-</table>
+                        }
+                        </tbody>
+                    </table>
+</section>
 
 
 @if (ViewBag.mensaje != null)

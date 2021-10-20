@@ -10,9 +10,10 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Nueva categoria</h4>
-        <hr />
+<div class="form-horizontal">
+    <h4>Nueva categoria</h4>
+    <hr />
+    <div style="margin-left: 100px; margin-right:100px;">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @*<div class="form-group">
             @Html.LabelFor(model => model.idCategoria, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -33,16 +34,17 @@
 
             <div class="form-group">
                 <div class=" col-md-6">
-                    <input type="submit" value="Crear" class="btn btn-primary" />
+                    <input type="submit" value="Crear" id="modificar" class="btn btn-primary" />
                 </div>
             </div>
         </div>
     </div>
-}
+    </div>
+    }
 
-<div>
-    @Html.ActionLink("Regresar a las categorias", "Index")
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <div class="mb-4 btn btn-default">
+        @Html.ActionLink("Regresar a las categorias", "Index")
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

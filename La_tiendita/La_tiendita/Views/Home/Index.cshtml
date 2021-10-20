@@ -3,48 +3,52 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Inicio</h2>
+@*<h2>Inicio</h2>*@
 
 <br />
 <br />
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2><b>Productos</b></h2>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-                <!-- Carousel indicators -->
-                <!-- Wrapper for carousel items -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            @foreach (var item in ViewBag.producto)
-                            {
-                                    <div class="col-sm-4">
-                                        <div class="thumb-wrapper">
-                                            <div class="img-box">
-                                                <img src="#" class="img-fluid" alt="">
-                                            </div>
-                                            <div class="thumb-content">
-                                                <h5> </h5>
-                                                <h4>@item.NProducto | @item.categoria.categoria</h4>
-                                                <p class="item-price"><span>$@item.PrecioVenta</span></p>
-                                                <p> Descripción: @item.Descripcion</p>
-                                                <p> Fecha de caducidad: @item.FechaV</p>
-                                                <p> Numero de existencia: @item.Existencia</p>
-                                                @*<a href="#" class="btn btn-primary">Add to Cart</a>*@
-                                            </div>
-                                        </div>
-                                    </div>
-                               
-                            }
-
-
-                     </div>
-                 </div>
-
-               </div>
-            </div>
+<header class="bg-dark py-5" style="position: relative; top:-30px; left:-120px; width: 1350px; ">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Productos</h1>
+            <p class="lead fw-normal text-white-50 mb-0"></p>
         </div>
     </div>
-</div>
+</header>
+
+<section class="py-5">
+
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            @foreach (var item in ViewBag.producto)
+            {
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">@item.NProducto | @item.categoria.categoria</h5>
+                                <!-- Product price-->
+                                $@item.PrecioVenta
+                                <p> Descripción: @item.Descripcion</p>
+                                <p> Fecha de caducidad: @item.FechaV</p>
+                                <p> Numero de existencia: @item.Existencia</p>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            @*<div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>*@
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</section>
