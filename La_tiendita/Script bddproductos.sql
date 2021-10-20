@@ -40,5 +40,3 @@ Select* from Categoria
 
 Select* from Producto  inner join Categoria  on Producto.Id_categoria = Categoria.Id_categoria 
  /*Consulta JOIN para obtener la data compartida entre ambas tablas*/
-  delete from Producto where Id_producto = 2;
-  delete from Categoria where Id_categoria  = 2;
