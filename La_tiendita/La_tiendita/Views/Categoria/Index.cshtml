@@ -1,9 +1,8 @@
-﻿
+﻿@model La_tiendita.Models.Categoria
 @{
     ViewBag.Title = "categoria";
 }
 
-<h2>Categoria</h2>
 
 @Html.ActionLink("Agregar Categoria", "InsertarCategoria", null, new { miatributo = "valor1", @class = "btn btn-info" })
 
@@ -16,25 +15,33 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th></th>
             <th>Categoria</th>
-            <th>Acción</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in ViewBag.categoria)
         {
             <tr>
-                <td>@item.idCategoria<td>
+                <td>@item.idCategoria
+                <td>
                 <td>@item.categoria</td>
                 <td>
+                    
                     @Html.ActionLink("Modificar", "ModificarCategoria", new { id = item.idCategoria }, new { miatributo = "valor1", @class = "btn btn-success" })
                     @Html.ActionLink("Eliminar", "EliminarCategoria", new { id = item.idCategoria }, new { miatributo = "valor1", @class = "btn btn-danger", onclick = "return confirm('¿Estas seguro de eliminar este registro?');" })
                 </td>
+
             </tr>
+
+
         }
+
+
 
     </tbody>
 </table>
+
 
 @if (ViewBag.mensaje != null)
 {
@@ -45,11 +52,13 @@
 
 }
 <script>
-function myFunction() {
-  var txt;
-  var r = confirm("Press a button!");
-  if (r == true) {
-    txt = "You pressed OK!";
-  } else {
-    txt = "You pressed Cancel!";
-  }
+    function myFunction() {
+        var txt;
+        var r = confirm("Press a button!");
+        if (r == true) {
+            txt = "You pressed OK!";
+        } else {
+            txt = "You pressed Cancel!";
+        }
+</script>
+

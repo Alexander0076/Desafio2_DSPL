@@ -21,7 +21,7 @@ namespace La_tiendita.Models
 
         public Decimal PrecioCompra { get; set; }
 
-        public Decimal PrecioVenta { get; set; }
+        public Double PrecioVenta { get; set; }
 
         public int idCategoria { get; set; }
         public Categoria categoria { get; set; }

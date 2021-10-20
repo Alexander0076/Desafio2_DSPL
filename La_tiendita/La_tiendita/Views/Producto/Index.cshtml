@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.ActionLink("Agregar Producto", "Insertar", null, new { miatributo = "valor1", @class = "btn btn-info" })
+
+
+<h2>
+    Lista de Productos
+</h2>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Fecha de caducidad</th>
+            <th>Existencias productos</th>
+            <th>Precio de compra</th>
+            <th>Precio de venta</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.producto)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.NProducto</td>
+                <td>@item.Descripcion</td>
+                <td>@item.FechaV</td>
+                <td>@item.Existencia</td>
+                <td>$ @item.PrecioCompra</td>
+                <td>$ @item.PrecioVenta</td>
+                <td>@item.categoria.categoria</td>
+                <td>
+                    @Html.ActionLink("Modificar", "Modificar", new { id = item.Id }, new { miatributo = "valor1", @class = "btn btn-success" })
+                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id }, new { miatributo = "valor1", @class = "btn btn-danger", onclick = "return confirm('¿Estas seguro de eliminar este registro?');" })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@if (ViewBag.mensaje != null)
+{
+
+    <div class="alert alert-success" role="alert">
+        @ViewBag.mensaje
+    </div>
+
+}
+<script>
+function myFunction() {
+  var txt;
+  var r = confirm("Press a button!");
+  if (r == true) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+    }
+    
+</script>
+

@@ -9,7 +9,8 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Web.Mvc;
+using System.Web.Mvc;
+
 
 namespace La_tiendita.Models
 {
@@ -21,7 +22,7 @@ namespace La_tiendita.Models
         public Conexion()
         {
             //Extrae las credenciales del webconfig
-            cadenaConexion = @"Data source=DESKTOP-NFDMETJ;Initial Catalog=ProductosDB;Integrated Security=True";
+            cadenaConexion = @"Data source=DESKTOP-K0U1A6P\MSSQLSERVER1;Initial Catalog=ProductosDB;Integrated Security=True";
 
         }
         //Función para realizar conexion a base de datos SQLserver
@@ -98,7 +99,7 @@ namespace La_tiendita.Models
                             FechaV = lector["fecha_caducidad"].ToString(),
                             Existencia = Convert.ToInt32(lector["existencia_de_producto"]),
                             PrecioCompra = Convert.ToDecimal(lector["precio_compra"]),
-                            PrecioVenta = Convert.ToDecimal(lector["precio_venta"]),
+                            PrecioVenta = Convert.ToDouble(lector["precio_venta"]),
                             categoria = oc1
                         });
                     }
@@ -189,7 +190,7 @@ namespace La_tiendita.Models
                         items.FechaV = Convert.ToDateTime(lector["fecha_caducidad"]).ToString("yyyy-MM-dd");
                         items.Existencia = Convert.ToInt32(lector["existencia_de_producto"]);
                         items.PrecioCompra = Convert.ToDecimal(lector["precio_compra"]);
-                        items.PrecioVenta = Convert.ToDecimal(lector["precio_venta"]);
+                        items.PrecioVenta = Convert.ToDouble(lector["precio_venta"]);
                         items.categoria = oc1;
 
                     }
@@ -222,7 +223,7 @@ namespace La_tiendita.Models
                 comando.Parameters.AddWithValue("@p3", Convert.ToDateTime(producto.FechaV));
                 comando.Parameters.AddWithValue("@p4", producto.Existencia);
                 comando.Parameters.AddWithValue("@p5", producto.PrecioCompra);
-                comando.Parameters.AddWithValue("@p6", producto.PrecioVenta);
+                comando.Parameters.AddWithValue("@p6", Convert.ToDouble(producto.PrecioVenta));
                 comando.Parameters.AddWithValue("@p7", producto.idCategoria);
 
                 //Realizar el actualización a la tabal oferta desde la aplicación.
