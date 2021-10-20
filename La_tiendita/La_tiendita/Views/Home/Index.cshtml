@@ -1,6 +1,50 @@
 ﻿
 @{
-    ViewBag.Title = "categoria";
+    ViewBag.Title = "Index";
 }
 
 <h2>Inicio</h2>
+
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2><b>Productos</b></h2>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- Carousel indicators -->
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            @foreach (var item in ViewBag.producto)
+                            {
+                                    <div class="col-sm-4">
+                                        <div class="thumb-wrapper">
+                                            <div class="img-box">
+                                                <img src="#" class="img-fluid" alt="">
+                                            </div>
+                                            <div class="thumb-content">
+                                                <h5> </h5>
+                                                <h4>@item.NProducto | @item.categoria.categoria</h4>
+                                                <p class="item-price"><span>$@item.PrecioVenta</span></p>
+                                                <p> Descripción: @item.Descripcion</p>
+                                                <p> Fecha de caducidad: @item.FechaV</p>
+                                                <p> Numero de existencia: @item.Existencia</p>
+                                                @*<a href="#" class="btn btn-primary">Add to Cart</a>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                            }
+
+
+                     </div>
+                 </div>
+
+               </div>
+            </div>
+        </div>
+    </div>
+</div>

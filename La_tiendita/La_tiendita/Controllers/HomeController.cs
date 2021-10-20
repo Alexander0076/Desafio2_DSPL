@@ -12,7 +12,7 @@ namespace La_tiendita.Controllers
         Conexion conexion = new Conexion();
         public ActionResult Index()
         {
-            ViewBag.categoria = conexion.listaCategoria();
+            ViewBag.producto = conexion.listaProducto();
 
             return View();
         }    
