@@ -38,6 +38,8 @@
                 <td>@item.categoria.categoria</td>
                 <td>
                     @Html.ActionLink("Modificar", "Modificar", new { id = item.Id }, new { miatributo = "valor1", @class = "btn btn-success" })
+                </td>
+                <td>
                     @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id }, new { miatributo = "valor1", @class = "btn btn-danger", onclick = "return confirm('¿Estas seguro de eliminar este registro?');" })
                 </td>
             </tr>

@@ -23,9 +23,9 @@ namespace La_tiendita.Models
         {
             //Extrae las credenciales del webconfig
 
-            cadenaConexion = @"Data source=DESKTOP-NFDMETJ;Initial Catalog=ProductosDB;Integrated Security=True";
+            //cadenaConexion = @"Data source=DESKTOP-NFDMETJ;Initial Catalog=ProductosDB;Integrated Security=True";
 
-            //cadenaConexion = @"Data source=DESKTOP-K0U1A6P\MSSQLSERVER1;Initial Catalog=ProductosDB;Integrated Security=True";
+            cadenaConexion = @"Data source=DESKTOP-K0U1A6P\MSSQLSERVER1;Initial Catalog=ProductosDB;Integrated Security=True";
 
         }
         //Función para realizar conexion a base de datos SQLserver
